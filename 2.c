@@ -1,29 +1,49 @@
 #include<stdio.h>
+#define TRUE 1
+#define FALSE 0
 
-void RangeDisplay(int iStart , int iEnd)
+typedef int BOOL;
+BOOL ChkZero(int iNo)
 {
-    int iCnt = 0;
-
-    for(int iCnt = iStart; iCnt <= iEnd; iCnt++)
+    int iDigit = 0;
+    while(iNo > 0)
     {
-       if((iCnt % 2) == 0)
-       {
-            printf("%d",iCnt);
-       }
+        iDigit = iNo % 10;
+
+        if(iDigit == 0)
+        {
+            break;
+        }
+
+        iNo = iNo / 10;
+    }
+
+   
+    if(iNo > 0)
+    {
+        return TRUE;
+    }
+    else
+    {
+        return FALSE;
     }
 }
-
 int main()
 {
-    int iValue1 = 0, iValue2 = 0;
+    int iValue = 0,iRet = 0;
 
-    printf("Enter starting point\n");
-    scanf("%d",&iValue1);
+    printf("Enter Number \n");
+    scanf("%d",&iValue);
 
-    printf("Enter ending point\n");
-    scanf("%d",&iValue2);
+    iRet = ChkZero(iValue);
 
-    RangeDisplay(iValue1,iValue2);
-    
+    if(iRet == 1)
+    {
+        printf("It contains zero");
+    }
+    else
+    {
+        printf("There is no zero");
+    }
     return 0;
 }

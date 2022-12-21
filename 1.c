@@ -1,26 +1,21 @@
 #include<stdio.h>
-
-void RangeDisplay(int iStart , int iEnd)
+void DisplayDigit(int iNo)
 {
-    int iCnt = 0;
-
-    for(int iCnt = iStart; iCnt <= iEnd; iCnt++)
+    int iDigit = 0;
+    while(iNo > 0)
     {
-        printf("%d",iCnt);
+        iDigit = iNo % 10;
+        printf("%d\n",iDigit);
+        iNo = iNo / 10;
     }
 }
-
 int main()
 {
-    int iValue1 = 0, iValue2 = 0;
+    int iValue = 0;
 
-    printf("Enter starting point\n");
-    scanf("%d",&iValue1);
+    printf("Enter Number \n");
+    scanf("%d",&iValue);
 
-    printf("Enter ending point\n");
-    scanf("%d",&iValue2);
-
-    RangeDisplay(iValue1,iValue2);
-    
+    DisplayDigit(iValue);
     return 0;
 }

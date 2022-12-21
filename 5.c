@@ -1,26 +1,28 @@
 #include<stdio.h>
-
-void RangeDisplay(int iStart , int iEnd)
+int CountTwo(int iNo)
 {
-    int iCnt = 0;
-
-    for(int iCnt = iEnd; iCnt <= iStart; iCnt++)
+    int iDigit = 0,iFrequency = 0;;
+    int iValue = 4;
+    while(iNo > 0)
     {
-        printf("%d",iCnt);
+        iDigit = iNo % 10;
+        iNo = iNo / 10;
+        if(iDigit < 6)
+        {
+            iFrequency++;
+        }
     }
+    return iFrequency;
 }
-
 int main()
 {
-    int iValue1 = 0, iValue2 = 0;
+    int iValue = 0,iRet = 0;
 
-    printf("Enter starting point\n");
-    scanf("%d",&iValue1);
+    printf("Enter Number \n");
+    scanf("%d",&iValue);
 
-    printf("Enter ending point\n");
-    scanf("%d",&iValue2);
+    iRet = CountTwo(iValue);
 
-    RangeDisplay(iValue1,iValue2);
-    
+    printf("Frequency of 2 is %d",iRet);
     return 0;
 }
