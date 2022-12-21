@@ -32,46 +32,36 @@ void InsetFirst(PPNODE Head,int no)
         *Head = newn;
     }
 }
-int SearchLastOcc(PNODE Head , int no)
+void DisplayPrime(PNODE Head)
 {
-    int index = 0;
-    int iCnt = 0;
-    while (Head != NULL)
-    { 
-        iCnt++;
-        if(Head->data == no)
+    int iNo = 0,iCnt = 0;
+   while (Head != NULL)
+   {
+        while (iCnt < 1 && iCnt > Head->data)
         {
-            index = iCnt;
+            if(Head->data % 2 == 0)
+            {
+                printf("%d",Head->data);
+            }
         }
-        Head = Head->next;
-    }
-    return index;
+        
+    Head = Head->next;
+   }
+   
 }
 int main()
 {
     PNODE First = NULL;
     int no,iRet = 0;;
 
-    InsetFirst(&First,11);
-    InsetFirst(&First,101);
+    InsetFirst(&First,47);
     InsetFirst(&First,51);
-    InsetFirst(&First,21);
+    InsetFirst(&First,20);
     InsetFirst(&First,11);
 
-    printf("Enter the number you want to search\n");
-    scanf("%d",&no);
+    DisplayPrime(First);
 
-    iRet = SearchLastOcc(First,no);
-
-    if(iRet == -1)
-    {
-        printf("Number is not present");
-    }
-    else
-    {
-        printf("Last occurance of the number : %d\n",iRet);
-    }
-
+  
 
     return 0;
 }

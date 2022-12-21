@@ -32,52 +32,50 @@ void InsetFirst(PPNODE Head,int no)
         *Head = newn;
     }
 }
-int SearchFirstOcc(PNODE Head , int no)
+void DisplayPerfect(PNODE Head)
 {
-    int iCnt = 0;
+    int iCnt = 0,iSum = 0;
+    
     while (Head != NULL)
-    { 
-        iCnt++;
-        if(Head->data == no)
+    {
+        while (Head->data >= iCnt)
         {
-            break;
+            if(Head->data % iCnt == 0)
+            {
+                iSum = iSum + iCnt;
+                iCnt++;
+            }
+            else
+            {
+                iCnt++;
+            }
         }
-        Head = Head->next;
+        if ( (Head->data) == iSum)
+        {
+            printf("%d",Head->data);
+        }
+        else
+        {
+            return;
+        }
+       Head = Head->next;
     }
-   
-    if(Head==NULL)
-    {
-        return -1;
-    }
-    else
-    {
-        return iCnt;
-    }
+    
+    
 }
 int main()
 {
     PNODE First = NULL;
     int no,iRet = 0;;
 
-    InsetFirst(&First,101);
-    InsetFirst(&First,51);
-    InsetFirst(&First,21);
-    InsetFirst(&First,11);
+    InsetFirst(&First,40);
+    InsetFirst(&First,30);
+    InsetFirst(&First,20);
+    InsetFirst(&First,10);
 
-    printf("Enter the number you want to search\n");
-    scanf("%d",&no);
+    DisplayPerfect(First);
 
-    iRet = SearchFirstOcc(First,no);
-
-    if(iRet == -1)
-    {
-        printf("Number is not present");
-    }
-    else
-    {
-        printf("Number is present at position : %d\n",iRet);
-    }
-
+  
 
     return 0;
 }
