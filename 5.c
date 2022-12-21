@@ -1,45 +1,46 @@
-#include<stdio.h>
+#include <stdio.h>
 #include<stdlib.h>
 
-int CountEven(int Arr[],int iLength,int iValue)
+void Digitsum
+(int Arr[], int iLength)
 {
+    int iCnt = 0,iDigit = 0;
 
-    int iCount = 0 , iCnt = 0 ;
-
-    for(iCnt = 0; iCnt < iLength ; iCnt++)
+    for(iCnt = 0; iCnt < iLength; iCnt++)
     {
-       if(Arr[iCnt] == iValue)
-       {
-            iCount++;
-       }
-      
-    }
-   return iCount;
-}
+        int iNo = Arr[iCnt];
+        int iSum = 0;
+        while (iNo > 0)
+        {
+            iDigit = iNo % 10;
+            iSum = iSum + iDigit;
+            iNo = iNo / 10;
+        }
 
+        printf("%d\n",iSum);
+        
+    }
+
+}
 int main()
 {
-    int iSize = 0,iCnt = 0,iRet = 0,No = 0;
+    int iSize = 0, iCnt = 0;
     int *p = NULL;
 
     printf("Enter Number of elements\n");
-    scanf("%d",&iSize);
+    scanf("%d", &iSize);
+
 
     p = (int *)malloc(iSize * sizeof(int));
 
     printf("enter elements\n");
 
-    for(iCnt = 0;iCnt < iSize ; iCnt++)
+    for (iCnt = 0; iCnt < iSize; iCnt++)
     {
-        scanf("%d",&p[iCnt]);
+        scanf("%d", &p[iCnt]);
     }
 
-    printf("Enter the number you want to search");
-    scanf("%d",&No);
-
-     iRet = CountEven(p,iSize,No);
-
-     printf("%d",iRet);
+    Digitsum(p, iSize);
 
     free(p);
 

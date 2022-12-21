@@ -1,22 +1,27 @@
 #include<stdio.h>
 #include<stdlib.h>
+#define TRUE 1
+#define FALSE 0
 
-int CountEven(int Arr[],int iLength)
+typedef int BOOL;
+
+BOOL Maximum(int Arr[],int iLength)
 {
 
-    int iCount = 0 , iCnt = 0;
+
+    int iCnt = 0,iNo = 11,iMax = 0;
 
     for(iCnt = 0; iCnt < iLength ; iCnt++)
     {
-        if(Arr[iCnt] % 2 == 0)
+        if(iMax < Arr[iCnt] )
         {
-           iCount++;
+            iMax = Arr[iCnt];
         }
       
     }
-   return iCount;
-}
 
+    return iMax;
+}
 int main()
 {
     int iSize = 0,iCnt = 0,iRet = 0;
@@ -34,9 +39,10 @@ int main()
         scanf("%d",&p[iCnt]);
     }
 
-     iRet = CountEven(p,iSize);
+    
+     iRet = Maximum(p,iSize);
 
-     printf("%d",iRet);
+    printf("Larges number is %d",iRet);
 
     free(p);
 

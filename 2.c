@@ -1,26 +1,27 @@
 #include<stdio.h>
 #include<stdlib.h>
+#define TRUE 1
+#define FALSE 0
 
-int CountEven(int Arr[],int iLength)
+typedef int BOOL;
+
+BOOL Minimum(int Arr[],int iLength)
 {
 
-    int iEvenCount = 0 , iCnt = 0 , iOddCount = 0;
 
-    for(iCnt = 0; iCnt < iLength ; iCnt++)
+    int iCnt = 0,iNo = 11,iMin = Arr[0];
+
+    for(iCnt = 1; iCnt < iLength ; iCnt++)
     {
-        if(Arr[iCnt] % 2 == 0)
+        if(iMin > Arr[iCnt] )
         {
-           iEvenCount++;
-        }
-        else
-        {
-            iOddCount++;
+            iMin = Arr[iCnt];
         }
       
     }
-   return iEvenCount - iOddCount;
-}
 
+    return iMin;
+}
 int main()
 {
     int iSize = 0,iCnt = 0,iRet = 0;
@@ -38,9 +39,10 @@ int main()
         scanf("%d",&p[iCnt]);
     }
 
-     iRet = CountEven(p,iSize);
+    
+     iRet = Minimum(p,iSize);
 
-     printf("%d",iRet);
+    printf("Smallest number is %d",iRet);
 
     free(p);
 

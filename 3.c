@@ -5,31 +5,26 @@
 
 typedef int BOOL;
 
-BOOL CountEven(int Arr[],int iLength)
+BOOL Minimum(int Arr[],int iLength)
 {
 
 
-    int iCnt = 0,iNo = 11;
+    int iCnt = 0,iNo = 11,iMin = Arr[0],iMax = 0;
 
-    for(iCnt = 0; iCnt < iLength ; iCnt++)
+    for(iCnt = 1; iCnt < iLength ; iCnt++)
     {
-        if(Arr[iCnt] == 11)
+        if(iMin > Arr[iCnt] )
         {
-            break;
+            iMin = Arr[iCnt];
+        }
+        if(iMax < Arr[iCnt])
+        {
+            iMax = Arr[iCnt];
         }
       
     }
 
-    if(iCnt == iLength)
-    {
-        return FALSE;
-    }
-    else
-    {
-        return TRUE;
-    }
-
-    
+    return iMax - iMin;
 }
 int main()
 {
@@ -49,16 +44,9 @@ int main()
     }
 
     
-     iRet = CountEven(p,iSize);
+     iRet = Minimum(p,iSize);
 
-    if(iRet == 1)
-    {
-        printf("It contains 11");
-    }
-    else
-    {
-        printf("It does not contain 11");
-    }
+    printf("Difference is %d",iRet);
 
     free(p);
 
