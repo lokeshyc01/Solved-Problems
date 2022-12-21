@@ -1,34 +1,44 @@
 #include<stdio.h>
+#include<stdlib.h>
 
-int CountEven(int iNo)
+void Difference(int Arr[],int iLength)
 {
-    int iDigit = 0;
-    int iCount = 0;
-    while (iNo > 0)
-    {
-        iDigit = iNo % 10;
-        iNo = iNo / 10;
-        iCount++;
-    }
 
-    if(iCount >= 3 && iCount <= 7)
-    {   
-         return iCount;
+    int iEvenSum = 0 , iOddSum = 0 , iCnt = 0;
+
+    for(iCnt = 0; iCnt < iLength ; iCnt++)
+    {
+        if(Arr[iCnt] % 2 == 0 && Arr[iCnt] % 5 == 0)
+        {
+            printf("%d",Arr[iCnt]);
+        }
+      
     }
-    
+   
 }
 
 int main()
 {
-    int iValue = 0;
-    int iRet = 0;
+    int iSize = 0, iRet = 0,iCnt = 0,iLength = 0;
+    int *p = NULL;
 
-    printf("Enter Number\n");
-    scanf("%d",&iValue);
+    printf("Enter Number of elements\n");
+    scanf("%d",&iSize);
 
-    iRet = CountEven(iValue);
+    p = (int *)malloc(iSize * sizeof(int));
 
-    printf("%d",iRet);
+    printf("enter elements\n");
+
+    for(iCnt = 0;iCnt < iSize ; iCnt++)
+    {
+        scanf("%d",&p[iCnt]);
+    }
+
+     Difference(p,iSize);
+
+    printf("Result is %d",iRet);
+
+    free(p);
 
     return 0;
 }
