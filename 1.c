@@ -1,26 +1,30 @@
 #include<stdio.h>
-void DisplayASCII()
+
+int CountCapital(char *str)
 {
-    int i = 0;
+    int iCnt = 0,i = 0;
 
-    printf("_________________________________________________\n");
-    printf("ASCII table\n");
-    printf("_________________________________________________\n");
-    
-    printf("Charcter\t Decimal\t Hex \t Octal");
-
-    for(i = 0; i <= 127; i++)
+    while (*str != '\0')
     {
-        printf("%c \t %d \t %x \t %o\n",i,i,i,i);
+       if (str[i] >= 'A' && str[i] <= 'Z')
+       {
+            iCnt++;    
+       }
+        str++;
     }
-
-    printf("\n_________________________________________________\n");
-
+    return iCnt;
 }
 
 int main()
 {
-    DisplayASCII();
+    char arr[20];
+    int iRet = 0;
+
+    printf("Enter String\n");
+    scanf("%[^'\n']s",arr);
+
+    iRet = CountCapital(arr);
+    printf("%d\n",iRet);
 
     return 0;
 }

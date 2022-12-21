@@ -1,18 +1,40 @@
 #include<stdio.h>
+#include<stdbool.h>
 
-void Display(char ch)
+void Reverse(char *str)
 {
-   printf("Decimal\t Octal \t Hexadecimal\n");
-   printf("%d %x %o",ch,ch,ch);
+   char *start = NULL;
+   char *end = NULL;
+   char temp = '\0';
+    
+    start = str;
+    end = str;
+
+    while(*end != '\0')
+    {
+        end++;
+    }
+    end--;
+
+    while (start < end)
+    {
+        temp = *start;
+        *start = *end;
+        *end = temp;
+
+        start++;
+        end--;
+    }
+    printf("%s",str);
+   
 }
 int main()
 {
-    char cValue = '\0';
-   
+    char arr[20];
 
-    printf("Enter the character\n");
-    scanf("%c",&cValue);
+    printf("Enter String\n");
+    scanf("%[^'\n']s",arr);
 
-   Display(cValue);
+    Reverse(arr);    
     return 0;
 }

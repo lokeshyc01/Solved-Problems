@@ -1,26 +1,30 @@
 #include<stdio.h>
-void Display(char ch)
-{
-    if( ch >= 'a' && ch <= 'z')
-    {
-        ch = ch - 32;
-        printf("%c",ch);
-    }
-    else if( ch >= 'A' && ch <= 'Z')
-    {
-        ch = ch + 32;
-        printf("%c",ch);
-    }
 
+int CountSmall(char *str)
+{
+    int iCnt = 0,i = 0;
+
+    while (*str != '\0')
+    {
+       if (*str >= 'a' && *str <= 'z')
+       {
+            iCnt++;    
+       }
+        str++;
+    }
+    return iCnt;
 }
+
 int main()
 {
-    char cValue = '\0';
+    char arr[20];
+    int iRet = 0;
 
-    printf("Enter the character\n");
-    scanf("%c",&cValue);
+    printf("Enter String\n");
+    scanf("%[^'\n']s",arr);
 
-    Display(cValue);
+    iRet = CountSmall(arr);
+    printf("%d\n",iRet);
 
     return 0;
 }

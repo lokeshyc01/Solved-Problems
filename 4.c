@@ -1,37 +1,42 @@
 #include<stdio.h>
-#define TRUE 1
-# define FALSE 0
+#include<stdbool.h>
 
-typedef int BOOL;
-BOOL Display(char ch)
+bool ChkVowel(char *str)
 {
-    if( ch >= '!' && ch <= '*')
+     bool bFlag = false;
+
+    while (*str != '\0')
     {
-       return TRUE;
+       if (*str == 'a' || *str == 'e' || *str == 'i' || *str == 'o' || *str == 'u')
+       {
+          bFlag = true;
+       }
+        else
+        {
+            bFlag = false;
+        }
+        str++;
+    }
+        return bFlag;
+}
+
+int main()
+{
+    char arr[20];
+    bool bRet = false;
+
+    printf("Enter String\n");
+    scanf("%[^'\n']s",arr);
+
+    bRet = ChkVowel(arr);
+    
+    if(bRet == true)
+    {
+        printf("Contains vowel");
     }
     else
     {
-        return FALSE;
-    }
-
-}
-int main()
-{
-    char cValue = '\0';
-    BOOL bRet = FALSE;
-
-    printf("Enter the character\n");
-    scanf("%c",&cValue);
-
-   bRet = Display(cValue);
-
-    if(bRet == TRUE)
-    {
-        printf("It is special character");
-    }
-    else 
-    {
-        printf("It is not a special character");
+        printf("There is no vowel");
     }
     return 0;
 }

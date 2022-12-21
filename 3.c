@@ -1,36 +1,34 @@
 #include<stdio.h>
-void Display(char ch)
+
+int Difference(char *str)
 {
-    if(ch >= 'A' && ch <= 'Z')
+    int iSmallCount = 0,iCaptialCount = 0,i = 0;
+
+    while (*str != '\0')
     {
-        while (ch != 'Z')
-        {
-            printf("%c\t",ch);
-            ch++;
-        }
-        
+       if (str >= 'a' && str <= 'z')
+       {
+            iSmallCount++;    
+       }
+       else if(str >= 'A' && str <= 'Z')
+       {
+            iCaptialCount++;
+       }
+        str++;
     }
-    else if(ch >= 'a' && ch <= 'z')
-    {
-        while (ch != 'a')
-        {
-            printf("%c\t",ch);
-            ch--;
-        }
-    }
-    else
-    {
-        return;
-    }
+    return iSmallCount - iCaptialCount;
 }
+
 int main()
 {
-    char cValue = '\0';
+    char arr[20];
+    int iRet = 0;
 
-    printf("Enter the character");
-    scanf("%c",&cValue);
+    printf("Enter String\n");
+    scanf("%[^'\n']s",arr);
 
-    Display(cValue);
+    iRet = Difference(arr);
+    printf("%d\n",iRet);
 
     return 0;
 }
