@@ -1,25 +1,39 @@
 #include<stdio.h>
 #include<stdlib.h>
+#define TRUE 1
+#define FALSE 0
 
-void Difference(int Arr[],int iLength)
+typedef int BOOL;
+
+BOOL CountEven(int Arr[],int iLength)
 {
 
-    int iEvenSum = 0 , iOddSum = 0 , iCnt = 0;
+
+    int iCnt = 0,iNo = 11;
 
     for(iCnt = 0; iCnt < iLength ; iCnt++)
     {
-        if(Arr[iCnt] % 2 == 0 && Arr[iCnt] % 5 == 0)
+        if(Arr[iCnt] == 11)
         {
-            printf("%d",Arr[iCnt]);
+            break;
         }
       
     }
-   
-}
 
+    if(iCnt == iLength)
+    {
+        return FALSE;
+    }
+    else
+    {
+        return TRUE;
+    }
+
+    
+}
 int main()
 {
-    int iSize = 0, iRet = 0,iCnt = 0,iLength = 0;
+    int iSize = 0,iCnt = 0,iRet = 0;
     int *p = NULL;
 
     printf("Enter Number of elements\n");
@@ -34,9 +48,17 @@ int main()
         scanf("%d",&p[iCnt]);
     }
 
-     Difference(p,iSize);
+    
+     iRet = CountEven(p,iSize);
 
-    printf("Result is %d",iRet);
+    if(iRet == 1)
+    {
+        printf("It contains 11");
+    }
+    else
+    {
+        printf("It does not contain 11");
+    }
 
     free(p);
 

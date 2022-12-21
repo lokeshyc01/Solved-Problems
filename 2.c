@@ -1,24 +1,29 @@
 #include<stdio.h>
 #include<stdlib.h>
 
-void Difference(int Arr[],int iLength)
+int CountEven(int Arr[],int iLength)
 {
 
-    int iEvenSum = 0 , iOddSum = 0 , iCnt = 0;
+    int iEvenCount = 0 , iCnt = 0 , iOddCount = 0;
 
     for(iCnt = 0; iCnt < iLength ; iCnt++)
     {
-        if(Arr[iCnt] % 5 == 0)
+        if(Arr[iCnt] % 2 == 0)
         {
-            printf("%d",Arr[iCnt]);
+           iEvenCount++;
         }
+        else
+        {
+            iOddCount++;
+        }
+      
     }
-    
+   return iEvenCount - iOddCount;
 }
 
 int main()
 {
-    int iSize = 0, iRet = 0,iCnt = 0;
+    int iSize = 0,iCnt = 0,iRet = 0;
     int *p = NULL;
 
     printf("Enter Number of elements\n");
@@ -33,7 +38,10 @@ int main()
         scanf("%d",&p[iCnt]);
     }
 
-    Difference(p,iSize);
+     iRet = CountEven(p,iSize);
+
+     printf("%d",iRet);
+
     free(p);
 
     return 0;
