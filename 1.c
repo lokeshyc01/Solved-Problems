@@ -1,5 +1,4 @@
 #include<stdio.h>
-
 int MultiFact(int iNo)
 {
     int iCnt = 0;
@@ -8,13 +7,12 @@ int MultiFact(int iNo)
     {
         if((iNo % iCnt) == 0)
         {
-           iMult = iMult * iCnt;
+            iMult = iMult * iCnt;
         }
     }
-
     return iMult;
-}
 
+}
 int main()
 {
     int iValue = 0;
@@ -23,9 +21,9 @@ int main()
     printf("Enter Number\n");
     scanf("%d",&iValue);
 
-    iRet = MultiFact(iValue);
+   iRet = MultiFact(iValue);
 
-    printf("%d",iRet);
-
+   printf("%d",iRet);
+   
     return 0;
 }
