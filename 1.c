@@ -1,50 +1,27 @@
 #include<stdio.h>
-#include<stdlib.h>
-#define TRUE 1
-#define FALSE 0
 
-typedef int BOOL;
-
-BOOL Maximum(int Arr[],int iLength)
+void Pattern(int iRow,int iCol)
 {
-
-
-    int iCnt = 0,iNo = 11,iMax = 0;
-
-    for(iCnt = 0; iCnt < iLength ; iCnt++)
+    int i = 0,j = 0;
+    
+    for(i = 1 ; i <= iRow ; i++)
     {
-        if(iMax < Arr[iCnt] )
+        for(j = 1 ; j <= iCol ; j++)
         {
-            iMax = Arr[iCnt];
+            printf("*\t");
         }
-      
+        printf("\n");
     }
-
-    return iMax;
 }
+
 int main()
 {
-    int iSize = 0,iCnt = 0,iRet = 0;
-    int *p = NULL;
+    int iValue1 = 0, iValue2 = 0;
 
-    printf("Enter Number of elements\n");
-    scanf("%d",&iSize);
+    printf("Enter number of Rows and Columns\n");
+    scanf("%d %d",&iValue1,&iValue2);
 
-    p = (int *)malloc(iSize * sizeof(int));
-
-    printf("enter elements\n");
-
-    for(iCnt = 0;iCnt < iSize ; iCnt++)
-    {
-        scanf("%d",&p[iCnt]);
-    }
-
-    
-     iRet = Maximum(p,iSize);
-
-    printf("Larges number is %d",iRet);
-
-    free(p);
+    Pattern(iValue1,iValue2);
 
     return 0;
 }

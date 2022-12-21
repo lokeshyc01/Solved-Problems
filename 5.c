@@ -1,48 +1,27 @@
-#include <stdio.h>
-#include<stdlib.h>
+#include<stdio.h>
 
-void Digitsum
-(int Arr[], int iLength)
+void Pattern(int iRow,int iCol)
 {
-    int iCnt = 0,iDigit = 0;
-
-    for(iCnt = 0; iCnt < iLength; iCnt++)
+    int i = 0,j = 0;
+    
+    for(i = 1 ; i <= iRow ; i++)
     {
-        int iNo = Arr[iCnt];
-        int iSum = 0;
-        while (iNo > 0)
+        for(j = 1 ; j <= iCol ; j++)
         {
-            iDigit = iNo % 10;
-            iSum = iSum + iDigit;
-            iNo = iNo / 10;
+           printf("%d\t",i);
         }
-
-        printf("%d\n",iSum);
-        
+        printf("\n");
     }
-
 }
+
 int main()
 {
-    int iSize = 0, iCnt = 0;
-    int *p = NULL;
+    int iValue1 = 0, iValue2 = 0;
 
-    printf("Enter Number of elements\n");
-    scanf("%d", &iSize);
+    printf("Enter number of Rows and Columns\n");
+    scanf("%d %d",&iValue1,&iValue2);
 
-
-    p = (int *)malloc(iSize * sizeof(int));
-
-    printf("enter elements\n");
-
-    for (iCnt = 0; iCnt < iSize; iCnt++)
-    {
-        scanf("%d", &p[iCnt]);
-    }
-
-    Digitsum(p, iSize);
-
-    free(p);
+    Pattern(iValue1,iValue2);
 
     return 0;
 }
