@@ -1,51 +1,64 @@
 #include<stdio.h>
+#include<stdlib.h>
 
-int LastChar(char *str,char ch)
+#define TRUE 1
+#define FALSE 0
+
+typedef int BOOL;
+
+struct node
 {
-    int iCnt = 0;
-    char *start = str;
-    char *end = str;
+    int data;
+    struct node *next;
+};
+typedef struct node NODE;
+typedef struct node *PNODE;
+typedef struct node **PPNODE;
+void InsetFirst(PPNODE Head,int no)
+{
+    PNODE newn = NULL;
+    newn = (PNODE)malloc(sizeof(NODE));
 
-    while (*end != '\0')
-    {
-        end++;
-    }
-    end--;
+    newn->next = NULL;
+    newn->data = no;
 
-    while (end[iCnt] != *start)
+    if(*Head == NULL)
     {
-        if(end[iCnt] == ch)
-        {
-            break;
-        }
-        iCnt--;
-    }
-    
-    if(end[iCnt] == '\0')
-    {
-        return -1;
+        *Head = newn;
     }
     else
     {
-        return -(iCnt-1);
+        newn->next = *Head;
+        *Head = newn;
     }
-    
 }
-
+int Maximum(PNODE Head)
+{
+    int iMax = 0;
+    while (Head != NULL)
+    { 
+       if(Head->data > iMax)
+       {
+            iMax = Head->data;
+       }
+       Head = Head->next;
+    }
+    return iMax;
+}
 int main()
 {
-    char arr[20];
-    char cValue;
-    int iRet = 0;
-    printf("Enter String\n");
-    scanf("%[^'\n']s",arr);
+    PNODE First = NULL;
+    int no,iRet = 0;;
 
-    printf("Enter Character\n");
-    scanf(" %c",&cValue);
+    InsetFirst(&First,11);
+    InsetFirst(&First,101);
+    InsetFirst(&First,51);
+    InsetFirst(&First,21);
+    InsetFirst(&First,11);
 
-    iRet = LastChar(arr,cValue);
+    iRet = Maximum(First);
 
-    printf("Last occurance is at the position : %d",iRet);
+    printf("Largest element is : %d\n",iRet);
 
     return 0;
 }

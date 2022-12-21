@@ -1,53 +1,83 @@
 #include<stdio.h>
+#include<stdlib.h>
+
 #define TRUE 1
 #define FALSE 0
 
 typedef int BOOL;
 
-BOOL ChkChar(char *str,char ch)
+struct node
 {
-    while (*str != '\0')
+    int data;
+    struct node *next;
+};
+typedef struct node NODE;
+typedef struct node *PNODE;
+typedef struct node **PPNODE;
+void InsetFirst(PPNODE Head,int no)
+{
+    PNODE newn = NULL;
+    newn = (PNODE)malloc(sizeof(NODE));
+
+    newn->next = NULL;
+    newn->data = no;
+
+    if(*Head == NULL)
     {
-        if(*str == ch)
+        *Head = newn;
+    }
+    else
+    {
+        newn->next = *Head;
+        *Head = newn;
+    }
+}
+int SearchFirstOcc(PNODE Head , int no)
+{
+    int iCnt = 0;
+    while (Head != NULL)
+    { 
+        iCnt++;
+        if(Head->data == no)
         {
             break;
         }
-        str++;
+        Head = Head->next;
     }
-
-    if(*str == '\0')
+   
+    if(Head==NULL)
     {
-        return FALSE;
+        return -1;
     }
     else
     {
-        return TRUE;
+        return iCnt;
     }
-    
 }
-
 int main()
 {
-    char arr[20];
-    char cValue;
-    BOOL bRet = FALSE;
+    PNODE First = NULL;
+    int no,iRet = 0;;
 
-    printf("Enter String\n");
-    scanf("%[^'\n']s",arr);
+    InsetFirst(&First,101);
+    InsetFirst(&First,51);
+    InsetFirst(&First,21);
+    InsetFirst(&First,11);
 
-    printf("Enter Character\n");
-    scanf(" %c",&cValue);
+    printf("Enter the number you want to search\n");
+    scanf("%d",&no);
 
-    bRet = ChkChar(arr,cValue);
+    iRet = SearchFirstOcc(First,no);
 
-    if(bRet == TRUE)
+    if(iRet == -1)
     {
-        printf("Character found");
+        printf("Number is not present");
     }
     else
     {
-        printf("Character not found");
+        printf("Number is present at position : %d\n",iRet);
     }
+
 
     return 0;
 }

@@ -1,41 +1,61 @@
 #include<stdio.h>
+#include<stdlib.h>
 
-int CountChar(char *str,char ch)
+#define TRUE 1
+#define FALSE 0
+
+typedef int BOOL;
+
+struct node
 {
-    int iCnt = 0;
-    while (str[iCnt] != '\0')
-    {
-        if(str[iCnt] == ch)
-        {
-          break;
-        }
-       iCnt++;
-    }
+    int data;
+    struct node *next;
+};
+typedef struct node NODE;
+typedef struct node *PNODE;
+typedef struct node **PPNODE;
+void InsetFirst(PPNODE Head,int no)
+{
+    PNODE newn = NULL;
+    newn = (PNODE)malloc(sizeof(NODE));
 
-    if(str[iCnt] == '\0')
+    newn->next = NULL;
+    newn->data = no;
+
+    if(*Head == NULL)
     {
-        return -1;
+        *Head = newn;
     }
     else
     {
-        return iCnt+1;
+        newn->next = *Head;
+        *Head = newn;
     }
 }
-
+int Addition(PNODE Head)
+{
+    int iAns = 0;
+    while (Head != NULL)
+    { 
+       iAns = iAns + Head->data;
+        Head = Head->next;
+    }
+    return iAns;
+}
 int main()
 {
-    char arr[20];
-    char cValue;
-    int iRet = 0;
-    printf("Enter String\n");
-    scanf("%[^'\n']s",arr);
+    PNODE First = NULL;
+    int no,iRet = 0;;
 
-    printf("Enter Character\n");
-    scanf(" %c",&cValue);
+    InsetFirst(&First,11);
+    InsetFirst(&First,101);
+    InsetFirst(&First,51);
+    InsetFirst(&First,21);
+    InsetFirst(&First,11);
 
-    iRet = CountChar(arr,cValue);
+    iRet = Addition(First);
 
-    printf("First occurance is at the position : %d",iRet);
+    printf("Addition is : %d\n",iRet);
 
     return 0;
 }

@@ -1,43 +1,64 @@
 #include<stdio.h>
+#include<stdlib.h>
 
-int StrRevX(char *str)
+#define TRUE 1
+#define FALSE 0
+
+typedef int BOOL;
+
+struct node
 {
-    char *start = NULL;
-    char *end = NULL;
-    char temp = '\0';
+    int data;
+    struct node *next;
+};
+typedef struct node NODE;
+typedef struct node *PNODE;
+typedef struct node **PPNODE;
+void InsetFirst(PPNODE Head,int no)
+{
+    PNODE newn = NULL;
+    newn = (PNODE)malloc(sizeof(NODE));
 
-    start = str;
-    // end = length(str);
-    end = str;
+    newn->next = NULL;
+    newn->data = no;
 
-    while (*end != '\0')
+    if(*Head == NULL)
     {
-        end++;
+        *Head = newn;
     }
-    end--;
-
-    while (start < end)
+    else
     {
-        temp = *start;
-        *start = *end;
-        *end = temp;
-
-        start++;
-        end--;
+        newn->next = *Head;
+        *Head = newn;
     }
-
 }
-
+int Minimum(PNODE Head)
+{
+    int iMin = Head->data;
+    while (Head != NULL)
+    { 
+       if(Head->data < iMin)
+       {
+            iMin = Head->data;
+       }
+       Head = Head->next;
+    }
+    return iMin;
+}
 int main()
 {
-    char arr[20];
-    char cValue;
-    int iRet = 0;
-    printf("Enter String\n");
-    scanf("%[^'\n']s",arr);
+    PNODE First = NULL;
+    int no,iRet = 0;;
 
-     StrRevX(arr);
+    InsetFirst(&First,11);
+    InsetFirst(&First,101);
+    InsetFirst(&First,51);
+    InsetFirst(&First,21);
+    InsetFirst(&First,11);
 
-    printf("Modified string is %s",arr);
+    iRet = Minimum(First);
+
+    printf("smallest element  is : %d\n",iRet);
+
     return 0;
 }
