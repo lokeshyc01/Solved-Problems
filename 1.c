@@ -1,14 +1,27 @@
 #include<stdio.h>
+#define TRUE 1
+#define FALSE 0
 
-void strlwrx(char *str)
+typedef int BOOL;
+
+BOOL ChkChar(char *str,char ch)
 {
     while (*str != '\0')
     {
-        if(*str >= 'A' && *str <= 'Z')
+        if(*str == ch)
         {
-            *str = *str + 32;
+            break;
         }
         str++;
+    }
+
+    if(*str == '\0')
+    {
+        return FALSE;
+    }
+    else
+    {
+        return TRUE;
     }
     
 }
@@ -16,13 +29,25 @@ void strlwrx(char *str)
 int main()
 {
     char arr[20];
+    char cValue;
+    BOOL bRet = FALSE;
 
     printf("Enter String\n");
     scanf("%[^'\n']s",arr);
 
-    strlwrx(arr);
+    printf("Enter Character\n");
+    scanf(" %c",&cValue);
 
-    printf("Modified string is %s",arr);
+    bRet = ChkChar(arr,cValue);
+
+    if(bRet == TRUE)
+    {
+        printf("Character found");
+    }
+    else
+    {
+        printf("Character not found");
+    }
 
     return 0;
 }

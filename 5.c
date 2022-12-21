@@ -1,29 +1,43 @@
 #include<stdio.h>
 
-int CountWhite(char *str)
+int StrRevX(char *str)
 {
-    int iCnt = 0;
-    while (*str != '\0')
+    char *start = NULL;
+    char *end = NULL;
+    char temp = '\0';
+
+    start = str;
+    // end = length(str);
+    end = str;
+
+    while (*end != '\0')
     {
-        if(*str == ' ')
-        {
-           iCnt++;
-        }
-        str++;
+        end++;
     }
-    return iCnt;
+    end--;
+
+    while (start < end)
+    {
+        temp = *start;
+        *start = *end;
+        *end = temp;
+
+        start++;
+        end--;
+    }
+
 }
 
 int main()
 {
     char arr[20];
+    char cValue;
     int iRet = 0;
     printf("Enter String\n");
     scanf("%[^'\n']s",arr);
 
-    iRet = CountWhite(arr);
+     StrRevX(arr);
 
-    printf("%d",iRet);
-
+    printf("Modified string is %s",arr);
     return 0;
 }

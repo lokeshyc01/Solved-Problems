@@ -1,28 +1,33 @@
 #include<stdio.h>
 
-void struprx(char *str)
+int CountChar(char *str,char ch)
 {
+    int iCnt = 0;
     while (*str != '\0')
     {
-        if(*str >= 'a' && *str <= 'z')
+        if(*str == ch)
         {
-            *str = *str - 32;
+            iCnt++;
         }
         str++;
     }
-    
+    return iCnt;
 }
 
 int main()
 {
     char arr[20];
-
+    char cValue;
+    int iRet = 0;
     printf("Enter String\n");
     scanf("%[^'\n']s",arr);
 
-    struprx(arr);
+    printf("Enter Character\n");
+    scanf(" %c",&cValue);
 
-    printf("Modified string is %s",arr);
+    iRet = CountChar(arr,cValue);
+
+    printf("Frequency of that character is : %d",iRet);
 
     return 0;
 }

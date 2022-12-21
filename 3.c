@@ -1,33 +1,41 @@
 #include<stdio.h>
 
-void struprx(char *str)
+int CountChar(char *str,char ch)
 {
-    while (*str != '\0')
+    int iCnt = 0;
+    while (str[iCnt] != '\0')
     {
-        if(*str >= 'a' && *str <= 'z')
+        if(str[iCnt] == ch)
         {
-            *str = *str - 32;
+          break;
         }
-        else if (*str >= 'A' && *str <= 'Z')
-        {
-            *str = *str + 32;
-        }
-        
-        str++;
+       iCnt++;
     }
-    
+
+    if(str[iCnt] == '\0')
+    {
+        return -1;
+    }
+    else
+    {
+        return iCnt+1;
+    }
 }
 
 int main()
 {
     char arr[20];
-
+    char cValue;
+    int iRet = 0;
     printf("Enter String\n");
     scanf("%[^'\n']s",arr);
 
-    struprx(arr);
+    printf("Enter Character\n");
+    scanf(" %c",&cValue);
 
-    printf("Modified string is %s",arr);
+    iRet = CountChar(arr,cValue);
+
+    printf("First occurance is at the position : %d",iRet);
 
     return 0;
 }

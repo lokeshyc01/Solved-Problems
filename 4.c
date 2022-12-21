@@ -1,14 +1,33 @@
 #include<stdio.h>
 
-void DisplayDigit(char *str)
+int LastChar(char *str,char ch)
 {
-    while (*str != '\0')
+    int iCnt = 0;
+    char *start = str;
+    char *end = str;
+
+    while (*end != '\0')
     {
-        if(*str >= '0' && *str <= '9')
+        end++;
+    }
+    end--;
+
+    while (end[iCnt] != *start)
+    {
+        if(end[iCnt] == ch)
         {
-            printf("%c\t",*str);
+            break;
         }
-        str++;
+        iCnt--;
+    }
+    
+    if(end[iCnt] == '\0')
+    {
+        return -1;
+    }
+    else
+    {
+        return -(iCnt-1);
     }
     
 }
@@ -16,11 +35,17 @@ void DisplayDigit(char *str)
 int main()
 {
     char arr[20];
-
+    char cValue;
+    int iRet = 0;
     printf("Enter String\n");
     scanf("%[^'\n']s",arr);
 
-    DisplayDigit(arr);
+    printf("Enter Character\n");
+    scanf(" %c",&cValue);
+
+    iRet = LastChar(arr,cValue);
+
+    printf("Last occurance is at the position : %d",iRet);
 
     return 0;
 }
