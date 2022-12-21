@@ -1,40 +1,29 @@
 #include<stdio.h>
-#include<stdbool.h>
 
-void Reverse(char *str)
+int CountWhite(char *str)
 {
-   char *start = NULL;
-   char *end = NULL;
-   char temp = '\0';
-    
-    start = str;
-    end = str;
-
-    while(*end != '\0')
+    int iCnt = 0;
+    while (*str != '\0')
     {
-        end++;
+        if(*str == ' ')
+        {
+           iCnt++;
+        }
+        str++;
     }
-    end--;
-
-    while (start < end)
-    {
-        temp = *start;
-        *start = *end;
-        *end = temp;
-
-        start++;
-        end--;
-    }
-    printf("%s",str);
-   
+    return iCnt;
 }
+
 int main()
 {
     char arr[20];
-
+    int iRet = 0;
     printf("Enter String\n");
     scanf("%[^'\n']s",arr);
 
-    Reverse(arr);    
+    iRet = CountWhite(arr);
+
+    printf("%d",iRet);
+
     return 0;
 }

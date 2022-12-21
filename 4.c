@@ -1,42 +1,26 @@
 #include<stdio.h>
-#include<stdbool.h>
 
-bool ChkVowel(char *str)
+void DisplayDigit(char *str)
 {
-     bool bFlag = false;
-
     while (*str != '\0')
     {
-       if (*str == 'a' || *str == 'e' || *str == 'i' || *str == 'o' || *str == 'u')
-       {
-          bFlag = true;
-       }
-        else
+        if(*str >= '0' && *str <= '9')
         {
-            bFlag = false;
+            printf("%c\t",*str);
         }
         str++;
     }
-        return bFlag;
+    
 }
 
 int main()
 {
     char arr[20];
-    bool bRet = false;
 
     printf("Enter String\n");
     scanf("%[^'\n']s",arr);
 
-    bRet = ChkVowel(arr);
-    
-    if(bRet == true)
-    {
-        printf("Contains vowel");
-    }
-    else
-    {
-        printf("There is no vowel");
-    }
+    DisplayDigit(arr);
+
     return 0;
 }

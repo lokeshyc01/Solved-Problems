@@ -1,34 +1,33 @@
 #include<stdio.h>
 
-int Difference(char *str)
+void struprx(char *str)
 {
-    int iSmallCount = 0,iCaptialCount = 0,i = 0;
-
     while (*str != '\0')
     {
-       if (str >= 'a' && str <= 'z')
-       {
-            iSmallCount++;    
-       }
-       else if(str >= 'A' && str <= 'Z')
-       {
-            iCaptialCount++;
-       }
+        if(*str >= 'a' && *str <= 'z')
+        {
+            *str = *str - 32;
+        }
+        else if (*str >= 'A' && *str <= 'Z')
+        {
+            *str = *str + 32;
+        }
+        
         str++;
     }
-    return iSmallCount - iCaptialCount;
+    
 }
 
 int main()
 {
     char arr[20];
-    int iRet = 0;
 
     printf("Enter String\n");
     scanf("%[^'\n']s",arr);
 
-    iRet = Difference(arr);
-    printf("%d\n",iRet);
+    struprx(arr);
+
+    printf("Modified string is %s",arr);
 
     return 0;
 }
