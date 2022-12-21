@@ -1,27 +1,38 @@
 #include<stdio.h>
-int FactRev(int iNo)
-{
-    int iCnt = 0;
-   
-    for(iCnt = (iNo / 2); iCnt >= 1 ; iCnt--)
-    {
-        if((iNo % iCnt) == 0)
-        {
-           printf("%d\t",iCnt);
-        }
-    }
-    
+typedef int BOOL;
 
+#define TRUE 1
+#define FALSE 0
+
+BOOL ChkGreater(int iNo)
+{
+    if(iNo > 100)
+    {
+        return TRUE;
+    }
+    else
+    {
+        return FALSE;
+    }
 }
+
 int main()
 {
     int iValue = 0;
- 
+    BOOL bRet = FALSE;
 
-    printf("Enter Number\n");
+    printf("Please enter number \n");
     scanf("%d",&iValue);
 
-    FactRev(iValue);
-   
+    bRet = ChkGreater(iValue);
+
+    if(bRet == 1)
+    {
+        printf("Greater");
+    }
+    else
+    {
+        printf("Smaller");
+    }
     return 0;
 }

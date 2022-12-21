@@ -1,30 +1,28 @@
 #include<stdio.h>
-
-int SumNonFact(int iNo)
+int Multiply(int iNo1,int iNo2,int iNo3)
 {
-    int iCnt = 0;
-    int iSum = 0;
-
- for(iCnt = 1; iCnt <= (iNo); iCnt++)
+    if((iNo1 == 0)||(iNo2 == 0)||(iNo3 == 0))
     {
-        if((iNo % iCnt) != 0)
-        {
-          iSum = iSum + iCnt;
-        }
+        return 0;
     }
-    return iSum;
+    else
+    {
+        printf("inside else part");
+        return iNo1*iNo2*iNo3;
+    } 
+        
+    
 }
-
 int main()
 {
+    int iValue1 = 0, iValue2 = 0, iValue3 = 0 , iRet = 0;
+    
 
-    int iValue = 0;
-    int iRet = 0;
-   printf("Enter Number\n");
-   scanf("%d",&iValue);
+    printf("Please enter three number \n");
+    scanf("%d %d",&iValue1,&iValue2,&iValue3);
 
-   iRet = SumNonFact(iValue);
-   printf("%d",iRet);
+    iRet = Multiply(iValue1,iValue2,iValue3);
 
+    printf("%d",iRet);
     return 0;
 }

@@ -1,60 +1,27 @@
 #include<stdio.h>
-
-int SumNonFact(int iNo)
+float Percentage(int TotalMarks,int ObtainedMarks)
 {
-    int iCnt = 0;
-    int iSum = 0;
+   float iPercent = 0.0;
 
- for(iCnt = 1; iCnt <= (iNo); iCnt++)
-    {
-        if((iNo % iCnt) != 0)
-        {
-          iSum = iSum + iCnt;
-        }
-    }
-    return iSum;
+   iPercent = (ObtainedMarks / TotalMarks) * 100;
+
+   return iPercent;
+    
 }
-
-int SumFact(int iNo)
-{
-    {
-    int iCnt = 0;
-    int iSum = 0;
-
- for(iCnt = 1; iCnt <= (iNo/2); iCnt++)
-    {
-        if((iNo % iCnt) == 0)
-        {
-          iSum = iSum + iCnt;
-        }
-    }
-    return iSum;
-}
-}
-
-int FactDiff(int iNo)
-{
-    int iSumOfFact = 0;
-    int iSumOfNonFact = 0;
-
-    iSumOfFact = SumFact(iNo);
-    iSumOfNonFact = SumNonFact(iNo);
-
-    int iDiff = iSumOfFact - iSumOfNonFact;
-
-    return iDiff;
-}
-
 int main()
 {
+    int iValue1 = 0, iValue2 = 0;
+    float fRet = 0.0;
+    
 
-    int iValue = 0;
-    int iRet = 0;
-   printf("Enter Number\n");
-   scanf("%d",&iValue);
+   printf("enter total marks\n");
+   scanf("%d",&iValue1);
 
-   iRet = FactDiff(iValue);
-   printf("%d",iRet);
+   printf("enter Obtained marks\n");
+   scanf("%d",&iValue1);
 
+    fRet = Percentage(iValue1,iValue2);
+     
+    printf("%f",fRet);
     return 0;
 }

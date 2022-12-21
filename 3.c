@@ -1,26 +1,38 @@
 #include<stdio.h>
+typedef int BOOL;
 
-int NonFact(int iNo)
+#define TRUE 1
+#define FALSE 0
+
+BOOL ChkEqual(int iNo1,int iNo2)
 {
-    int iCnt = 0;
- for(iCnt = 1; iCnt <= (iNo); iCnt++)
+    if(iNo1 == iNo2)
     {
-        if((iNo % iCnt) != 0)
-        {
-           printf("%d\t",iCnt);
-        }
+        return TRUE;
+    }
+    else
+    {
+        return FALSE;
     }
 }
 
 int main()
 {
+    int iValue1 = 0, iValue2 = 0;
+    BOOL bRet = FALSE;
 
-    int iValue = 0;
+    printf("Please enter number \n");
+    scanf("%d %d",&iValue1,&iValue2);
 
-   printf("Enter Number\n");
-   scanf("%d",&iValue);
+    bRet = ChkEqual(iValue1,iValue2);
 
-   NonFact(iValue);
-
+    if(bRet == 1)
+    {
+        printf("Equal");
+    }
+    else
+    {
+        printf("Not Equal");
+    }
     return 0;
 }
