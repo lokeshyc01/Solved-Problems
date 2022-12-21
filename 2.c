@@ -1,38 +1,26 @@
 #include<stdio.h>
-#define TRUE 1
-#define FALSE 0
-
-typedef int BOOL;
-
-BOOL ChkCapital(char ch)
+void Display(char ch)
 {
-    if((ch >= 'A' && ch <= 'Z'))
+    if( ch >= 'a' && ch <= 'z')
     {
-        return TRUE;
+        ch = ch - 32;
+        printf("%c",ch);
     }
-    else
+    else if( ch >= 'A' && ch <= 'Z')
     {
-        return FALSE;
+        ch = ch + 32;
+        printf("%c",ch);
     }
-}
 
+}
 int main()
 {
     char cValue = '\0';
-    BOOL bRet = FALSE;
 
     printf("Enter the character\n");
     scanf("%c",&cValue);
 
-    bRet = ChkCapital(cValue);
+    Display(cValue);
 
-    if(bRet == TRUE)
-    {
-        printf("It is Capital Character");
-    }
-    else
-    {
-        printf("It is not a Capital Character");
-    }
     return 0;
 }

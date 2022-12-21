@@ -1,38 +1,36 @@
 #include<stdio.h>
-#define TRUE 1
-#define FALSE 0
-
-typedef int BOOL;
-
-BOOL ChkDigit(char ch)
+void Display(char ch)
 {
-    if((ch >= '0' && ch <= '9'))
+    if(ch >= 'A' && ch <= 'Z')
     {
-        return TRUE;
+        while (ch != 'Z')
+        {
+            printf("%c\t",ch);
+            ch++;
+        }
+        
+    }
+    else if(ch >= 'a' && ch <= 'z')
+    {
+        while (ch != 'a')
+        {
+            printf("%c\t",ch);
+            ch--;
+        }
     }
     else
     {
-        return FALSE;
+        return;
     }
 }
-
 int main()
 {
     char cValue = '\0';
-    BOOL bRet = FALSE;
 
-    printf("Enter the character\n");
+    printf("Enter the character");
     scanf("%c",&cValue);
 
-    bRet = ChkDigit(cValue);
+    Display(cValue);
 
-    if(bRet == TRUE)
-    {
-        printf("It is Digit");
-    }
-    else
-    {
-        printf("It is not a Digit");
-    }
     return 0;
 }

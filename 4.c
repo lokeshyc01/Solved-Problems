@@ -1,21 +1,20 @@
 #include<stdio.h>
 #define TRUE 1
-#define FALSE 0
+# define FALSE 0
 
 typedef int BOOL;
-
-BOOL ChkSmall(char ch)
+BOOL Display(char ch)
 {
-    if((ch >= 'a' && ch <= 'z'))
+    if( ch >= '!' && ch <= '*')
     {
-        return TRUE;
+       return TRUE;
     }
     else
     {
         return FALSE;
     }
-}
 
+}
 int main()
 {
     char cValue = '\0';
@@ -24,15 +23,15 @@ int main()
     printf("Enter the character\n");
     scanf("%c",&cValue);
 
-    bRet = ChkSmall(cValue);
+   bRet = Display(cValue);
 
     if(bRet == TRUE)
     {
-        printf("It is small case character");
+        printf("It is special character");
     }
-    else
+    else 
     {
-        printf("It is not a small case character");
+        printf("It is not a special character");
     }
     return 0;
 }

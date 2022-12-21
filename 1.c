@@ -1,38 +1,26 @@
 #include<stdio.h>
-#define TRUE 1
-#define FALSE 0
-
-typedef int BOOL;
-
-BOOL ChkAlpha(char ch)
+void DisplayASCII()
 {
-    if((ch >= 'a' && ch <= 'z') || (ch >= 'A' && ch <= 'Z'))
+    int i = 0;
+
+    printf("_________________________________________________\n");
+    printf("ASCII table\n");
+    printf("_________________________________________________\n");
+    
+    printf("Charcter\t Decimal\t Hex \t Octal");
+
+    for(i = 0; i <= 127; i++)
     {
-        return TRUE;
+        printf("%c \t %d \t %x \t %o\n",i,i,i,i);
     }
-    else
-    {
-        return FALSE;
-    }
+
+    printf("\n_________________________________________________\n");
+
 }
 
 int main()
 {
-    char cValue = '\0';
-    BOOL bRet = FALSE;
+    DisplayASCII();
 
-    printf("Enter the character\n");
-    scanf("%c",&cValue);
-
-    bRet = ChkAlpha(cValue);
-
-    if(bRet == TRUE)
-    {
-        printf("It is Character");
-    }
-    else
-    {
-        printf("It is not a character");
-    }
     return 0;
 }
