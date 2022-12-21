@@ -1,19 +1,24 @@
 #include<stdio.h>
-void Number(int iNo)
+
+void Display(int iNo)
 {
-    if (iNo > 100)
+    if(iNo < 0)
     {
-        printf("Large");
+        iNo = -(iNo);
     }
-    else if(iNo > 50 && iNo < 100)
-    {
-        printf("Medium");
-    }
-    else
-    {
-        printf("Small");
-    }
+    
+   int iCnt = 0;
+
+   for(iCnt = 1; iCnt <= iNo; iCnt++)
+   {
+        printf("*\t");
+   }
+   for(iCnt = 1; iCnt <= iNo; iCnt++)
+   {
+        printf("#\t");
+   }
 }
+
 int main()
 {
     int iValue = 0;
@@ -21,7 +26,7 @@ int main()
     printf("Enter Number\n");
     scanf("%d",&iValue);
 
-    Number(iValue);
+    Display(iValue);
 
     return 0;
 }

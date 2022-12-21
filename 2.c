@@ -1,18 +1,25 @@
 #include<stdio.h>
-#include<string.h>
-void Number(int iNo)
+
+int DollarToINR(int iNo)
 {
-   char arr[10][9] = {"Zero","One","Two","Three","Four","Five","Six","Seven","Eight","Nine"};
-   printf("%s",arr[iNo]);
+   int iDollarValue = 70;
+    int iValue = 0;
+
+    iValue = iDollarValue * iNo;
+
+    return iValue;
 }
+
 int main()
 {
-    int iValue = 0;
+    int iValue = 0, iRet = 0;
 
     printf("Enter Number\n");
     scanf("%d",&iValue);
 
-    Number(iValue);
+    iRet = DollarToINR(iValue);
+
+    printf("Value in INR is %d",iRet);
 
     return 0;
 }

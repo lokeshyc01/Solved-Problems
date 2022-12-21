@@ -1,23 +1,43 @@
 #include<stdio.h>
-void Table(int iNo)
-{
-    int iMult = 0;
-    int iCnt = 1;
 
-    for(iCnt = 10; iCnt >= 1; iCnt--)
+int FactorialDiff(int iNo)
+{
+    int iCnt = 0;
+    int iEvenMult = 1;
+    int iOddMult = 1;
+    int iFactDiff = 0;
+    if(iNo < 0)
     {
-        iMult = iNo * iCnt;
-        printf("%d\t",iMult);
+        iNo = -(iNo);
     }
+    
+    for(iCnt = 1; iCnt <= iNo; iCnt++)
+    {
+        if((iCnt % 2 ) == 0)
+       {
+            iEvenMult = iEvenMult * iCnt;
+       }
+       else
+       {
+            iOddMult = iOddMult * iCnt;
+       }
+    }
+    
+        iFactDiff = iEvenMult - iOddMult;
+
+    return iFactDiff;
 }
+
 int main()
 {
-    int iValue = 0;
+    int iValue = 0, iRet = 0;
 
     printf("Enter Number\n");
     scanf("%d",&iValue);
 
-    Table(iValue);
+    iRet = FactorialDiff(iValue);
+
+    printf("Factorial difference is : %d",iRet);
 
     return 0;
 }

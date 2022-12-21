@@ -1,23 +1,35 @@
 #include<stdio.h>
-void Table(int iNo)
-{
-    int iMult = 1;
-    int iCnt = 1;
 
-    for(iCnt = 1; iCnt <= 10; iCnt++)
+int OddFactorial(int iNo)
+{
+    if(iNo < 0)
     {
-        iMult = iNo * iCnt;
-        printf("%d\t",iMult);
+        iNo = -(iNo);
     }
+    
+    int iCnt = 0;
+    int iMult = 1;
+    for(iCnt = 1; iCnt <= iNo; iCnt++)
+    {
+       if((iCnt % 2 ) != 0)
+       {
+            iMult = iMult * iCnt;
+       }
+    }
+
+    return iMult;
 }
+
 int main()
 {
-    int iValue = 0;
+    int iValue = 0, iRet = 0;
 
     printf("Enter Number\n");
     scanf("%d",&iValue);
 
-    Table(iValue);
+    iRet = OddFactorial(iValue);
+
+    printf("%d",iRet);
 
     return 0;
 }
