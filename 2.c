@@ -1,49 +1,33 @@
 #include<stdio.h>
-#define TRUE 1
-#define FALSE 0
 
-typedef int BOOL;
-BOOL ChkZero(int iNo)
+int CountEven(int iNo)
 {
     int iDigit = 0;
-    while(iNo > 0)
+    int iCount = 0;
+    while (iNo > 0)
     {
         iDigit = iNo % 10;
-
-        if(iDigit == 0)
+        if(iDigit % 2 != 0)
         {
-            break;
+            iCount++;
         }
-
         iNo = iNo / 10;
     }
-
-   
-    if(iNo > 0)
-    {
-        return TRUE;
-    }
-    else
-    {
-        return FALSE;
-    }
+    
+    return iCount;
 }
+
 int main()
 {
-    int iValue = 0,iRet = 0;
+    int iValue = 0;
+    int iRet = 0;
 
-    printf("Enter Number \n");
+    printf("Enter Number\n");
     scanf("%d",&iValue);
 
-    iRet = ChkZero(iValue);
+    iRet = CountEven(iValue);
 
-    if(iRet == 1)
-    {
-        printf("It contains zero");
-    }
-    else
-    {
-        printf("There is no zero");
-    }
+    printf("%d",iRet);
+
     return 0;
 }

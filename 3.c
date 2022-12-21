@@ -1,28 +1,34 @@
 #include<stdio.h>
-int CountTwo(int iNo)
+
+int CountEven(int iNo)
 {
-    int iDigit = 0,iFrequency = 0;;
-    int iValue = 2;
-    while(iNo > 0)
+    int iDigit = 0;
+    int iCount = 0;
+    while (iNo > 0)
     {
         iDigit = iNo % 10;
         iNo = iNo / 10;
-        if(iDigit ==2)
-        {
-            iFrequency++;
-        }
+        iCount++;
     }
-    return iFrequency;
+
+    if(iCount >= 3 && iCount <= 7)
+    {   
+         return iCount;
+    }
+    
 }
+
 int main()
 {
-    int iValue = 0,iRet = 0;
+    int iValue = 0;
+    int iRet = 0;
 
-    printf("Enter Number \n");
+    printf("Enter Number\n");
     scanf("%d",&iValue);
 
-    iRet = CountTwo(iValue);
+    iRet = CountEven(iValue);
 
-    printf("Frequency of 2 is %d",iRet);
+    printf("%d",iRet);
+
     return 0;
 }
