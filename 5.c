@@ -1,43 +1,27 @@
 #include<stdio.h>
+#define SquareFeet 0.0929
 
-int FactorialDiff(int iNo)
+double SquareMeter(int iValue)
 {
-    int iCnt = 0;
-    int iEvenMult = 1;
-    int iOddMult = 1;
-    int iFactDiff = 0;
-    if(iNo < 0)
-    {
-        iNo = -(iNo);
-    }
-    
-    for(iCnt = 1; iCnt <= iNo; iCnt++)
-    {
-        if((iCnt % 2 ) == 0)
-       {
-            iEvenMult = iEvenMult * iCnt;
-       }
-       else
-       {
-            iOddMult = iOddMult * iCnt;
-       }
-    }
-    
-        iFactDiff = iEvenMult - iOddMult;
+    double dSquarefeet = 0.0;
 
-    return iFactDiff;
+    dSquarefeet = iValue * SquareFeet;
+
+    return dSquarefeet;
+    
 }
 
 int main()
 {
-    int iValue = 0, iRet = 0;
+    int iValue = 0;
+    double dRet = 0.0;
 
-    printf("Enter Number\n");
+    printf("Enter area in square feet\n");
     scanf("%d",&iValue);
 
-    iRet = FactorialDiff(iValue);
+    dRet = SquareMeter(iValue);
 
-    printf("Factorial difference is : %d",iRet);
-
+    printf("Area in square meter : %lf",dRet);
+    
     return 0;
 }

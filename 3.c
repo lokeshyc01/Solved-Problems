@@ -1,35 +1,23 @@
 #include<stdio.h>
+#define Meter 1000
 
-int EvenFactorial(int iNo)
+int KMtoMeter(int iNo)
 {
-    if(iNo < 0)
-    {
-        iNo = -(iNo);
-    }
-    
-    int iCnt = 0;
-    int iMult = 1;
-    for(iCnt = 1; iCnt <= iNo; iCnt++)
-    {
-       if((iCnt % 2 ) == 0)
-       {
-            iMult = iMult * iCnt;
-       }
-    }
+    int iDist = 0;
 
-    return iMult;
+    iDist = Meter * iNo;
+    return iDist;
 }
 
 int main()
 {
     int iValue = 0, iRet = 0;
 
-    printf("Enter Number\n");
+    printf("enter distance\n");
     scanf("%d",&iValue);
 
-    iRet = EvenFactorial(iValue);
+    iRet = KMtoMeter(iValue);
 
-    printf("%d",iRet);
-
+    printf("Distance in meter : %d",iRet);
     return 0;
 }

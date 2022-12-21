@@ -1,35 +1,26 @@
 #include<stdio.h>
 
-int OddFactorial(int iNo)
+double FhtoCs(float fTemp)
 {
-    if(iNo < 0)
-    {
-        iNo = -(iNo);
-    }
-    
-    int iCnt = 0;
-    int iMult = 1;
-    for(iCnt = 1; iCnt <= iNo; iCnt++)
-    {
-       if((iCnt % 2 ) != 0)
-       {
-            iMult = iMult * iCnt;
-       }
-    }
+    double dCelcius = 0.0;
 
-    return iMult;
+    dCelcius = (fTemp - 32) * (5/9);
+
+   return dCelcius;
+    
 }
 
 int main()
 {
-    int iValue = 0, iRet = 0;
+    float fValue1 = 0.0;
+    double dRet = 0.0;
 
-    printf("Enter Number\n");
-    scanf("%d",&iValue);
+    printf("Enter temperature in fahrenheit\n");
+    scanf("%f",&fValue1);
 
-    iRet = OddFactorial(iValue);
+    dRet = FhtoCs(fValue1);
 
-    printf("%d",iRet);
+    printf("Temperature in Celcius : %lf",dRet);
 
     return 0;
 }

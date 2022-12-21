@@ -1,25 +1,28 @@
 #include<stdio.h>
+#define PI 3.14
 
-int DollarToINR(int iNo)
+double RectArea(float fRadius1,float fRadius2)
 {
-   int iDollarValue = 70;
-    int iValue = 0;
+    double Area = 0.0;
 
-    iValue = iDollarValue * iNo;
+    Area = fRadius1 * fRadius2;
 
-    return iValue;
+    return Area;
 }
 
 int main()
 {
-    int iValue = 0, iRet = 0;
+    float fValue1 = 0.0, fValue2 = 0.0;
+    double dRet = 0.0;
 
-    printf("Enter Number\n");
-    scanf("%d",&iValue);
+    printf("enter width\n");
+    scanf("%f",&fValue1);
 
-    iRet = DollarToINR(iValue);
+    printf("enter height\n");
+    scanf("%f",&fValue2);
 
-    printf("Value in INR is %d",iRet);
+    dRet = RectArea(fValue1,fValue2);
 
+    printf("Area of rectangle is : %lf",dRet);
     return 0;
 }
