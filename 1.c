@@ -1,11 +1,22 @@
 #include<stdio.h>
 
+void Pattern(int iNo)
+{
+    int i = 0;
+    for (int i = 1; i <= iNo; i++)
+    {
+       printf("$\t");
+       printf("*\t");
+    }
+    
+}
+
 int main()
 {
-    char Name[30];
-    printf("Please enter full name\n");
-    // scanf("%s",&Name);
-    gets(Name);
-    printf("Your name is %s",Name);
+    int iValue = 0;
+    printf("Enter Number \n");
+    scanf("%d",&iValue);
+
+    Pattern(iValue);
     return 0;
 }

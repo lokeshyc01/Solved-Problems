@@ -1,28 +1,26 @@
 #include<stdio.h>
-int Multiply(int iNo1,int iNo2,int iNo3)
+
+void OddDisplay(int iNo)
 {
-    if((iNo1 == 0)||(iNo2 == 0)||(iNo3 == 0))
+    int iCnt = 0;
+
+    for(iCnt = 1 ; iCnt <= iNo ; iCnt++)
     {
-        return 0;
+        if((iCnt % 2 ) != 0)
+        {
+            printf("%d\t",iCnt);
+        }
     }
-    else
-    {
-        printf("inside else part");
-        return iNo1*iNo2*iNo3;
-    } 
-        
+    
     
 }
+
 int main()
 {
-    int iValue1 = 0, iValue2 = 0, iValue3 = 0 , iRet = 0;
-    
+    int iValue = 0;
+    printf("Enter Number \n");
+    scanf("%d",&iValue);
 
-    printf("Please enter three number \n");
-    scanf("%d %d",&iValue1,&iValue2,&iValue3);
-
-    iRet = Multiply(iValue1,iValue2,iValue3);
-
-    printf("%d",iRet);
+    OddDisplay(iValue);
     return 0;
 }

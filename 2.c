@@ -1,38 +1,21 @@
 #include<stdio.h>
-typedef int BOOL;
 
-#define TRUE 1
-#define FALSE 0
-
-BOOL ChkGreater(int iNo)
+void Display(int iNo)
 {
-    if(iNo > 100)
+    int i = 0;
+    for (int i = 1; i <= iNo; i++)
     {
-        return TRUE;
+       printf("%d\t",i);
     }
-    else
-    {
-        return FALSE;
-    }
+    
 }
 
 int main()
 {
     int iValue = 0;
-    BOOL bRet = FALSE;
-
-    printf("Please enter number \n");
+    printf("Enter Number \n");
     scanf("%d",&iValue);
 
-    bRet = ChkGreater(iValue);
-
-    if(bRet == 1)
-    {
-        printf("Greater");
-    }
-    else
-    {
-        printf("Smaller");
-    }
+    Display(iValue);
     return 0;
 }

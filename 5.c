@@ -1,27 +1,25 @@
 #include<stdio.h>
-float Percentage(int TotalMarks,int ObtainedMarks)
+
+void OddDisplay(int iNo)
 {
-   float iPercent = 0.0;
+    int iCnt = 0;
+    int iMult = 0;
 
-   iPercent = (ObtainedMarks / TotalMarks) * 100;
-
-   return iPercent;
+    for(iCnt = 1 ; iCnt <= 5 ; iCnt++)
+    {
+        iMult = iNo * iCnt;
+        printf("%d\t",iMult);
+    }
+    
     
 }
+
 int main()
 {
-    int iValue1 = 0, iValue2 = 0;
-    float fRet = 0.0;
-    
+    int iValue = 0;
+    printf("Enter Number \n");
+    scanf("%d",&iValue);
 
-   printf("enter total marks\n");
-   scanf("%d",&iValue1);
-
-   printf("enter Obtained marks\n");
-   scanf("%d",&iValue1);
-
-    fRet = Percentage(iValue1,iValue2);
-     
-    printf("%f",fRet);
+    OddDisplay(iValue);
     return 0;
 }
