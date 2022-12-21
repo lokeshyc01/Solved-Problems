@@ -1,26 +1,33 @@
 #include<stdio.h>
 
-double FhtoCs(float fTemp)
+int RangeDisplay(int iStart , int iEnd)
 {
-    double dCelcius = 0.0;
+    int iCnt = 0 , iSum = 0;;
 
-    dCelcius = (fTemp - 32) * (5/9);
+    for(int iCnt = iStart; iCnt <= iEnd; iCnt++)
+    {
+        if((iCnt % 2) == 0)
+       {    
+            iSum = iSum + iCnt;
+       }
+    }
 
-   return dCelcius;
-    
+    return iSum;
 }
 
 int main()
 {
-    float fValue1 = 0.0;
-    double dRet = 0.0;
+    int iValue1 = 0, iValue2 = 0, iRet = 0;
 
-    printf("Enter temperature in fahrenheit\n");
-    scanf("%f",&fValue1);
+    printf("Enter starting point\n");
+    scanf("%d",&iValue1);
 
-    dRet = FhtoCs(fValue1);
+    printf("Enter ending point\n");
+    scanf("%d",&iValue2);
 
-    printf("Temperature in Celcius : %lf",dRet);
-
+    iRet = RangeDisplay(iValue1,iValue2);
+    
+    printf("%d",iRet);
+    
     return 0;
 }

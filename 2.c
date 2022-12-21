@@ -1,28 +1,29 @@
 #include<stdio.h>
-#define PI 3.14
 
-double RectArea(float fRadius1,float fRadius2)
+void RangeDisplay(int iStart , int iEnd)
 {
-    double Area = 0.0;
+    int iCnt = 0;
 
-    Area = fRadius1 * fRadius2;
-
-    return Area;
+    for(int iCnt = iStart; iCnt <= iEnd; iCnt++)
+    {
+       if((iCnt % 2) == 0)
+       {
+            printf("%d",iCnt);
+       }
+    }
 }
 
 int main()
 {
-    float fValue1 = 0.0, fValue2 = 0.0;
-    double dRet = 0.0;
+    int iValue1 = 0, iValue2 = 0;
 
-    printf("enter width\n");
-    scanf("%f",&fValue1);
+    printf("Enter starting point\n");
+    scanf("%d",&iValue1);
 
-    printf("enter height\n");
-    scanf("%f",&fValue2);
+    printf("Enter ending point\n");
+    scanf("%d",&iValue2);
 
-    dRet = RectArea(fValue1,fValue2);
-
-    printf("Area of rectangle is : %lf",dRet);
+    RangeDisplay(iValue1,iValue2);
+    
     return 0;
 }

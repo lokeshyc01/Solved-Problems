@@ -1,27 +1,26 @@
 #include<stdio.h>
-#define SquareFeet 0.0929
 
-double SquareMeter(int iValue)
+void RangeDisplay(int iStart , int iEnd)
 {
-    double dSquarefeet = 0.0;
+    int iCnt = 0;
 
-    dSquarefeet = iValue * SquareFeet;
-
-    return dSquarefeet;
-    
+    for(int iCnt = iEnd; iCnt <= iStart; iCnt++)
+    {
+        printf("%d",iCnt);
+    }
 }
 
 int main()
 {
-    int iValue = 0;
-    double dRet = 0.0;
+    int iValue1 = 0, iValue2 = 0;
 
-    printf("Enter area in square feet\n");
-    scanf("%d",&iValue);
+    printf("Enter starting point\n");
+    scanf("%d",&iValue1);
 
-    dRet = SquareMeter(iValue);
+    printf("Enter ending point\n");
+    scanf("%d",&iValue2);
 
-    printf("Area in square meter : %lf",dRet);
+    RangeDisplay(iValue1,iValue2);
     
     return 0;
 }

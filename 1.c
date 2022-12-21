@@ -1,25 +1,26 @@
 #include<stdio.h>
-#define PI 3.14
 
-double CircleArea(float fRadius)
+void RangeDisplay(int iStart , int iEnd)
 {
-    double Area = 0.0;
+    int iCnt = 0;
 
-    Area = (double)PI * fRadius * fRadius;
-
-    return Area;
+    for(int iCnt = iStart; iCnt <= iEnd; iCnt++)
+    {
+        printf("%d",iCnt);
+    }
 }
 
 int main()
 {
-    float fValue = 0.0;
-    double dRet = 0.0;
+    int iValue1 = 0, iValue2 = 0;
 
-    printf("enter radius\n");
-    scanf("%f",&fValue);
+    printf("Enter starting point\n");
+    scanf("%d",&iValue1);
 
-    dRet = CircleArea(fValue);
+    printf("Enter ending point\n");
+    scanf("%d",&iValue2);
 
-    printf("Area of circle is : %lf",dRet);
+    RangeDisplay(iValue1,iValue2);
+    
     return 0;
 }

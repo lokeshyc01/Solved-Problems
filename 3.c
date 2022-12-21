@@ -1,23 +1,30 @@
 #include<stdio.h>
-#define Meter 1000
 
-int KMtoMeter(int iNo)
+int RangeDisplay(int iStart , int iEnd)
 {
-    int iDist = 0;
+    int iCnt = 0 , iSum = 0;;
 
-    iDist = Meter * iNo;
-    return iDist;
+    for(int iCnt = iStart; iCnt <= iEnd; iCnt++)
+    {
+       iSum = iSum + iCnt;
+    }
+
+    return iSum;
 }
 
 int main()
 {
-    int iValue = 0, iRet = 0;
+    int iValue1 = 0, iValue2 = 0, iRet = 0;
 
-    printf("enter distance\n");
-    scanf("%d",&iValue);
+    printf("Enter starting point\n");
+    scanf("%d",&iValue1);
 
-    iRet = KMtoMeter(iValue);
+    printf("Enter ending point\n");
+    scanf("%d",&iValue2);
 
-    printf("Distance in meter : %d",iRet);
+    iRet = RangeDisplay(iValue1,iValue2);
+    
+    printf("%d",iRet);
+    
     return 0;
 }
