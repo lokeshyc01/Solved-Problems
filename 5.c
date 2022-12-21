@@ -1,39 +1,60 @@
 #include<stdio.h>
 
-#define TRUE 1
-#define FALSE 0
-
-typedef int BOOL;
-
-BOOL ChkEven(int iNo)
+int SumNonFact(int iNo)
 {
-    if((iNo % 2) == 0)
+    int iCnt = 0;
+    int iSum = 0;
+
+ for(iCnt = 1; iCnt <= (iNo); iCnt++)
     {
-        return TRUE;
+        if((iNo % iCnt) != 0)
+        {
+          iSum = iSum + iCnt;
+        }
     }
-    else
+    return iSum;
+}
+
+int SumFact(int iNo)
+{
     {
-        return FALSE;
+    int iCnt = 0;
+    int iSum = 0;
+
+ for(iCnt = 1; iCnt <= (iNo/2); iCnt++)
+    {
+        if((iNo % iCnt) == 0)
+        {
+          iSum = iSum + iCnt;
+        }
     }
+    return iSum;
+}
+}
+
+int FactDiff(int iNo)
+{
+    int iSumOfFact = 0;
+    int iSumOfNonFact = 0;
+
+    iSumOfFact = SumFact(iNo);
+    iSumOfNonFact = SumNonFact(iNo);
+
+    int iDiff = iSumOfFact - iSumOfNonFact;
+
+    return iDiff;
 }
 
 int main()
 {
+
     int iValue = 0;
-    BOOL bRet = FALSE;
+    int iRet = 0;
+   printf("Enter Number\n");
+   scanf("%d",&iValue);
 
-    printf("Enter Number");
-    scanf("%d",&iValue);
+   iRet = FactDiff(iValue);
+   printf("%d",iRet);
 
-    bRet = ChkEven(iValue);
-
-    if(bRet == 1)
-    {
-        printf("Number is even");
-    }
-    else
-    {
-        printf("Number is odd");
-    }
     return 0;
 }

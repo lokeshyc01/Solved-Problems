@@ -1,27 +1,30 @@
 #include<stdio.h>
 
-void Display(int iNo , int iFrequency)
+int SumNonFact(int iNo)
 {
     int iCnt = 0;
+    int iSum = 0;
 
-    for(iCnt = 0; iCnt < iFrequency ; iCnt++)
+ for(iCnt = 1; iCnt <= (iNo); iCnt++)
     {
-        printf("%d",iNo);
+        if((iNo % iCnt) != 0)
+        {
+          iSum = iSum + iCnt;
+        }
     }
+    return iSum;
 }
 
 int main()
 {
+
     int iValue = 0;
-    int iCount = 0;
+    int iRet = 0;
+   printf("Enter Number\n");
+   scanf("%d",&iValue);
 
-    printf("Enter Number\n");
-    scanf("%d",&iValue);
-
-    printf("Enter Frequency\n");
-    scanf("%d",&iCount);
-
-    Display(iValue,iCount);
+   iRet = SumNonFact(iValue);
+   printf("%d",iRet);
 
     return 0;
 }
