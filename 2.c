@@ -1,34 +1,38 @@
 #include<stdio.h>
+#define TRUE 1
+#define FALSE 0
 
-void Pattern(int iRow,int iCol)
+typedef int BOOL;
+
+BOOL ChkCapital(char ch)
 {
-    int i = 0, j = 0;
-    char ch1 = 'A', ch2 = 'a';
-    for(i = 1; i<= iRow; i++)
+    if((ch >= 'A' && ch <= 'Z'))
     {
-        for(j = 0 ; j < iRow ; j++)
-        {
-            if((i % 2 == 0))
-            {
-                printf("%c\t",ch2+j);
-            }
-            else
-            {
-                 printf("%c\t",ch1+j);
-            }
-        }
-        printf("\n");
+        return TRUE;
+    }
+    else
+    {
+        return FALSE;
     }
 }
 
 int main()
 {
-    int iValue1 = 0, iValue2 = 0;
+    char cValue = '\0';
+    BOOL bRet = FALSE;
 
-    printf("Enter number of rows and Columns \n");
-    scanf("%d %d",&iValue1,&iValue2);
+    printf("Enter the character\n");
+    scanf("%c",&cValue);
 
-    Pattern(iValue1,iValue2);
+    bRet = ChkCapital(cValue);
 
+    if(bRet == TRUE)
+    {
+        printf("It is Capital Character");
+    }
+    else
+    {
+        printf("It is not a Capital Character");
+    }
     return 0;
 }

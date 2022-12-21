@@ -1,34 +1,39 @@
 #include<stdio.h>
+#define TRUE 1
+#define FALSE 0
 
-void Pattern(int iRow , int iCol)
+void DisplaySchedule(char chDiv)
 {
-    int i = 0, j = 0;
-
-    for(i = 1 ; i <= iRow ; i++)
+    if(chDiv == 'A' || chDiv == 'a')
     {
-        for(j = 1; j <= iCol ; j++)
-        {
-            if(i == 1 || i == iRow || j == 1 || j == iCol)
-            {
-                printf("%d\t",j);
-            }
-            else
-            {
-                printf("*\t");
-            }
-        }
-        printf("\n");
+        printf("7 AM\n");
+    }
+    else if(chDiv == 'B' || chDiv == 'b')
+    {
+        printf("8.30 AM\n");
+    }
+    else if(chDiv == 'C' || chDiv == 'c')
+    {
+        printf("9.20 AM\n");
+    }
+    else if (chDiv == 'D' || chDiv == 'd')
+    {
+        printf("10.30 AM");
+    }
+    else 
+    {
+        printf("Enter Correct Grade");
     }
 }
+
 int main()
 {
-    int iValue1 = 0, iValue2 = 0;
+    char cValue = '\0';
+    
+    printf("Enter the character\n");
+    scanf("%c",&cValue);
 
-    printf("Enter the number of rows and columns \n");
-    scanf("%d %d",&iValue1,&iValue2);
-
-    Pattern(iValue1,iValue2);
+    DisplaySchedule(cValue);
 
     return 0;
-
 }

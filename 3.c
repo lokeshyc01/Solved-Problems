@@ -1,34 +1,38 @@
 #include<stdio.h>
+#define TRUE 1
+#define FALSE 0
 
-void Pattern(int iRow , int iCol)
+typedef int BOOL;
+
+BOOL ChkDigit(char ch)
 {
-    int i = 0, j = 0;
-
-    for(i = 1 ; i <= iRow ; i++)
+    if((ch >= '0' && ch <= '9'))
     {
-        for(j = 1; j <= iCol ; j++)
-        {
-           if(i == j)
-           {
-            printf("$\t");
-           }
-           else
-           {
-            printf("*\t");
-           }
-        }
-        printf("\n");
+        return TRUE;
+    }
+    else
+    {
+        return FALSE;
     }
 }
+
 int main()
 {
-    int iValue1 = 0, iValue2 = 0;
+    char cValue = '\0';
+    BOOL bRet = FALSE;
 
-    printf("Enter the number of rows and columns \n");
-    scanf("%d %d",&iValue1,&iValue2);
+    printf("Enter the character\n");
+    scanf("%c",&cValue);
 
-    Pattern(iValue1,iValue2);
+    bRet = ChkDigit(cValue);
 
+    if(bRet == TRUE)
+    {
+        printf("It is Digit");
+    }
+    else
+    {
+        printf("It is not a Digit");
+    }
     return 0;
-
 }
