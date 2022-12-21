@@ -1,64 +1,41 @@
 #include<stdio.h>
-#include<stdlib.h>
 
-#define TRUE 1
-#define FALSE 0
-
-typedef int BOOL;
-
-struct node
+void pattern(int iNo)
 {
-    int data;
-    struct node *next;
-};
-typedef struct node NODE;
-typedef struct node *PNODE;
-typedef struct node **PPNODE;
-void InsetFirst(PPNODE Head,int no)
-{
-    PNODE newn = NULL;
-    newn = (PNODE)malloc(sizeof(NODE));
-
-    newn->next = NULL;
-    newn->data = no;
-
-    if(*Head == NULL)
+    int i = 0;
+    for(i = 1;i <= iNo; i++)
     {
-        *Head = newn;
-    }
-    else
-    {
-        newn->next = *Head;
-        *Head = newn;
-    }
-}
-int Maximum(PNODE Head)
-{
-    int iMax = 0;
-    while (Head != NULL)
-    { 
-       if(Head->data > iMax)
+       if(i == 1)
        {
-            iMax = Head->data;
+            printf("#\t");
+            printf("%d\t",i);
+            printf("*\t");
+            printf("#\t");
        }
-       Head = Head->next;
+       else if(i == iNo)
+       {
+            printf("%d\t",i);
+            printf("*\t");
+       }
+       else
+       {
+            printf("%d\t",i);
+            printf("*\t");
+            printf("#\t");
+       }
+
     }
-    return iMax;
 }
+
 int main()
 {
-    PNODE First = NULL;
-    int no,iRet = 0;;
+    int iValue = 0;
 
-    InsetFirst(&First,11);
-    InsetFirst(&First,101);
-    InsetFirst(&First,51);
-    InsetFirst(&First,21);
-    InsetFirst(&First,11);
+    printf("Enter number of elements\n");
+    scanf("%d",&iValue);
 
-    iRet = Maximum(First);
-
-    printf("Largest element is : %d\n",iRet);
+    pattern(iValue);
 
     return 0;
 }
+

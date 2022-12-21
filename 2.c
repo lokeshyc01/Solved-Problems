@@ -1,67 +1,24 @@
 #include<stdio.h>
-#include<stdlib.h>
 
-#define TRUE 1
-#define FALSE 0
-
-typedef int BOOL;
-
-struct node
+void pattern(int iNO)
 {
-    int data;
-    struct node *next;
-};
-typedef struct node NODE;
-typedef struct node *PNODE;
-typedef struct node **PPNODE;
-void InsetFirst(PPNODE Head,int no)
-{
-    PNODE newn = NULL;
-    newn = (PNODE)malloc(sizeof(NODE));
-
-    newn->next = NULL;
-    newn->data = no;
-
-    if(*Head == NULL)
+        int i = 0;
+    for(i = iNO;i > 0; i--)
     {
-        *Head = newn;
-    }
-    else
-    {
-        newn->next = *Head;
-        *Head = newn;
+        printf("%d\t",i);
+        printf("#\t");
     }
 }
-void DisplayPrime(PNODE Head)
-{
-    int iNo = 0,iCnt = 0;
-   while (Head != NULL)
-   {
-        while (iCnt < 1 && iCnt > Head->data)
-        {
-            if(Head->data % 2 == 0)
-            {
-                printf("%d",Head->data);
-            }
-        }
-        
-    Head = Head->next;
-   }
-   
-}
+
 int main()
 {
-    PNODE First = NULL;
-    int no,iRet = 0;;
+    int iValue = 0;
 
-    InsetFirst(&First,47);
-    InsetFirst(&First,51);
-    InsetFirst(&First,20);
-    InsetFirst(&First,11);
+    printf("Enter number of elements\n");
+    scanf("%d",&iValue);
 
-    DisplayPrime(First);
-
-  
+    pattern(iValue);
 
     return 0;
 }
+
