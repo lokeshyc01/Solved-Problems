@@ -1,21 +1,29 @@
 #include<stdio.h>
-
-void Display(int iNo)
+int Factorial(int iNo)
 {
-    int iCnt = 0;
-    for (int iCnt = -(iNo); iCnt <= iNo; iCnt++)
+    if(iNo < 0)
     {
-       printf("%d\t",iCnt);
+        iNo = -(iNo);
     }
-    
+   int iCnt = 0;
+   int iFact = 1;
+   for(iCnt = 1; iCnt<=iNo ; iCnt++)
+   {
+        iFact = iFact * iCnt;
+   }
+   return iFact;
 }
-
 int main()
 {
     int iValue = 0;
-    printf("Enter Number \n");
+    int iRet = 0;
+
+    printf("Enter Number\n");
     scanf("%d",&iValue);
 
-    Display(iValue);
+   iRet = Factorial(iValue);
+
+   printf("Factorial of number is %d ",iRet);
+
     return 0;
 }

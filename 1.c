@@ -1,22 +1,27 @@
 #include<stdio.h>
-
-void Pattern(int iNo)
+void Number(int iNo)
 {
-    int i = 0;
-    for (int i = 1; i <= iNo; i++)
+    if (iNo > 100)
     {
-       printf("$\t");
-       printf("*\t");
+        printf("Large");
     }
-    
+    else if(iNo > 50 && iNo < 100)
+    {
+        printf("Medium");
+    }
+    else
+    {
+        printf("Small");
+    }
 }
-
 int main()
 {
     int iValue = 0;
-    printf("Enter Number \n");
+
+    printf("Enter Number\n");
     scanf("%d",&iValue);
 
-    Pattern(iValue);
+    Number(iValue);
+
     return 0;
 }

@@ -1,26 +1,23 @@
 #include<stdio.h>
-
-void OddDisplay(int iNo)
+void Table(int iNo)
 {
-    int iCnt = 0;
+    int iMult = 1;
+    int iCnt = 1;
 
-    for(iCnt = 1 ; iCnt <= iNo ; iCnt++)
+    for(iCnt = 1; iCnt <= 10; iCnt++)
     {
-        if((iCnt % 2 ) != 0)
-        {
-            printf("%d\t",iCnt);
-        }
+        iMult = iNo * iCnt;
+        printf("%d\t",iMult);
     }
-    
-    
 }
-
 int main()
 {
     int iValue = 0;
-    printf("Enter Number \n");
+
+    printf("Enter Number\n");
     scanf("%d",&iValue);
 
-    OddDisplay(iValue);
+    Table(iValue);
+
     return 0;
 }
