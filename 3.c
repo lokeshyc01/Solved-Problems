@@ -1,23 +1,21 @@
 #include<stdio.h>
-void Display(int iNo)
+void DisplayFactor(int iNo)
 {
-    if(iNo < 10)
+    int iCnt = 0;
+    for(iCnt = 1; iCnt <= (iNo/2); iCnt++)
     {
-        printf("Hello");
+        if((iNo % iCnt) == 0 && (iCnt % 2) == 0)
+        {
+            printf("%d\t",iCnt);
+        }
     }
-    else
-    {
-        printf("Demo");
-    }
-}
 
+}
 int main()
 {
     int iValue = 0;
-    printf("Enter NUmber");
+    printf("Enter Number\n");
     scanf("%d",&iValue);
-
-    Display(iValue);
-
+    DisplayFactor(iValue);
     return 0;
 }

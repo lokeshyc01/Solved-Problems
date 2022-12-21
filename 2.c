@@ -1,20 +1,21 @@
 #include<stdio.h>
-void Display(int iNo)
+void DisplayFactor(int iNo)
 {
     int iCnt = 0;
-    while(iNo > iCnt)
+    for(iCnt = 1; iCnt <= (iNo/2); iCnt++)
     {
-        printf("*");
-        iNo--;
+        if((iNo % iCnt) == 0)
+        {
+            printf("%d\t",iCnt);
+        }
     }
+
 }
 int main()
 {
     int iValue = 0;
-
     printf("Enter Number\n");
     scanf("%d",&iValue);
-
-    Display(iValue);
+    DisplayFactor(iValue);
     return 0;
 }
